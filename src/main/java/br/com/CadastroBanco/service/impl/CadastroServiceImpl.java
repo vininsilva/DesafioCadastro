@@ -16,7 +16,7 @@ public class CadastroServiceImpl implements CadastroService {
     public CadastroRepository cadastroRepository;
 
     public Pessoa criarPessoa(Pessoa pessoa) {
-        if (cadastroRepository.findByCpf(pessoa.getCpf())) {
+        if (cadastroRepository.verifyByCpf(pessoa.getCpf())) {
             throw new IllegalArgumentException("CPF já cadastrado.");
         }
         return cadastroRepository.save(pessoa);
@@ -28,6 +28,10 @@ public class CadastroServiceImpl implements CadastroService {
 
     public Optional<Pessoa> buscarPorId(Integer id) {
         return cadastroRepository.findById(id);
+    }
+
+    public Optional<Pessoa> buscarPorCpf(String cpf) {
+        return cadastroRepository.findByCpf(cpf);
     }
 
     public Pessoa atualizarPessoa(Integer id, Pessoa pessoaAtualizada) {

@@ -37,6 +37,14 @@ public class CadastroController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @ApiOperation(value = "Buscar cadastro por CPF")
+    @GetMapping("/cpf/{cpf}")
+    public ResponseEntity<Pessoa> buscarPorCpf(@PathVariable String cpf) {
+        return cadastroService.buscarPorCpf(cpf)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @ApiOperation(value = "Atualizar cadastro")
     @PutMapping("/{id}")
     public ResponseEntity<Pessoa> atualizarPessoa(@PathVariable Integer id, @RequestBody Pessoa pessoa) {

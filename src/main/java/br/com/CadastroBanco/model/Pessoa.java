@@ -16,7 +16,7 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, unique = true, length = 11)
+    @Column(name = "cpf", nullable = false, unique = true, length = 11)
     private String cpf;
 
     @Column(nullable = false, length = 100)

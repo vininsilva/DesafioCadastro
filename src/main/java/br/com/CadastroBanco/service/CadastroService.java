@@ -16,4 +16,6 @@ public interface CadastroService {
     Pessoa atualizarPessoa(Integer id, Pessoa pessoa);
 
     void deleterPessoa(Integer id);
+
+    Optional<Pessoa> buscarPorCpf(String cpf);
 }
