@@ -58,3 +58,19 @@ public class CadastroController {
         return ResponseEntity.noContent().build();
     }
 }
+
+//Exemplo de body para chamada
+//{
+//        "cpf": "11111111111",
+//        "nome": "Vinicius",
+//        "dataNascimento": "1995-02-06",
+//        "telefone": "111111111111111",
+//        "endereco": {
+//        "rua": "Rua Teste",
+//        "numero": "123",
+//        "bairro": "Centro",
+//        "cidade": "São Paulo",
+//        "estado": "SP",
+//        "cep": "01000000"
+//        }
+//}
