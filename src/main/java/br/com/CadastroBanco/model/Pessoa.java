@@ -28,6 +28,7 @@ public class Pessoa {
     @Column(length = 15)
     private String telefone;
 
-    private String endereco;
+    @Embedded
+    private Endereco endereco;
 
 }
