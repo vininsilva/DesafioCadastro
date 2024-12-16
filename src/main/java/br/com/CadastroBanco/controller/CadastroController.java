@@ -2,6 +2,7 @@ package br.com.CadastroBanco.controller;
 
 import br.com.CadastroBanco.model.Pessoa;
 import br.com.CadastroBanco.service.CadastroService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,16 +17,19 @@ public class CadastroController {
     @Autowired
     public CadastroService cadastroService;
 
+    @ApiOperation(value = "Cadastrar pessoa")
     @PostMapping
     public ResponseEntity<Pessoa> criarPessoa(@RequestBody Pessoa pessoa) {
         return ResponseEntity.ok(cadastroService.criarPessoa(pessoa));
     }
 
+    @ApiOperation(value = "Buscar todas as pessoas cadastradas")
     @GetMapping
     public ResponseEntity<List<Pessoa>> listarPessoas() {
         return ResponseEntity.ok(cadastroService.listarPessoas());
     }
 
+    @ApiOperation(value = "Buscar cadastro por Id")
     @GetMapping("/{id}")
     public ResponseEntity<Pessoa> buscarPorId(@PathVariable Integer id) {
         return cadastroService.buscarPorId(id)
@@ -33,11 +37,13 @@ public class CadastroController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @ApiOperation(value = "Atualizar cadastro")
     @PutMapping("/{id}")
     public ResponseEntity<Pessoa> atualizarPessoa(@PathVariable Integer id, @RequestBody Pessoa pessoa) {
         return ResponseEntity.ok(cadastroService.atualizarPessoa(id, pessoa));
     }
 
+    @ApiOperation(value = "Deletar cadastro")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarPessoa(@PathVariable Integer id) {
         cadastroService.deleterPessoa(id);
