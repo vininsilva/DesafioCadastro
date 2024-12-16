@@ -4,11 +4,12 @@ import br.com.CadastroBanco.model.Pessoa;
 import br.com.CadastroBanco.service.CadastroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/api/cadastro")
 public class CadastroController {
 
